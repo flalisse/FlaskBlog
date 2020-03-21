@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Sign IN</h1>
+<br>
+<!-- novalidate is use to tell to the brower
+to not apply some validation check and
+let flask do it for him
+    !-->
+
+
+<form class="form-group"action="" method ="post" novalidate>
+
+    <!-- form hidden tag is use to make protect your system against
+   CSFR attack. He generate a hidden field that include a token to do it
+    !-->
+    {{ form.hidden_tag() }}
+    <p for="exampleFormControlTextarea1">
+        {{ form.username.label }}
+        {{ form.username(size=20,class="form-control",id="exampleFormControlTextarea1")}}
+
+        {% for error in form.username.errors %}
+        <span style="color:red;">[{{error}}]</span>
+        {% endfor %}
+    </p>
+    <p for="exampleFormControlTextarea1">
+    {{ form.password.label }}
+    {{ form.password(size=20,class="form-control",id="exampleFormControlTextarea1") }}
+        {% for error in form.username.errors %}
+        <span style="color:red;">[{{error}}]</span>
+        {% endfor %}
+    </p>
+    <p>{{ form.remember_me()}} {{form.remember_me.label}}</p>
+    <p>{{ form.submit(style="",class="btn btn-success") }}</p>
+    </p>
+</form>
+{% endblock %}

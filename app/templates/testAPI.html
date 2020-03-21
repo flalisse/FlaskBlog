@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+
+{%block content %}
+
+<p>Praha temp + humidity</p>
+        <form>
+            <a href=# id=test><button class='btn btn-default'>Click Here to update your informations</button></a>
+            <li>{{ element }} Celsius,</li>
+        </form>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('a#test').bind('click', function() {
+            console.log("test");
+            $.getJSON('/background_process_test',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+</script>
+
+{% endblock %}
+
